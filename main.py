@@ -22,13 +22,11 @@ def pagetest():
         email = request.form['email']
         phone = request.form['phone']
         message = request.form['message']
-        print(name, email,phone,message)
+        print(name, email, phone, message)
 
         mycursor.execute("SELECT * FROM pagetest")
-        data = mycursor.fetchall()
-        length = len(data)
         cmd = "INSERT INTO `pagetest`(`name`, `email`,`phone`,`message`) VALUES(%s,%s,%s,%s)"
-        val = (name, email,phone,message)
+        val = (name, email, phone, message)
         res = mycursor.execute(cmd, val)
         mydb.commit()
         print(res)
